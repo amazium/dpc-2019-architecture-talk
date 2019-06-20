@@ -9,7 +9,7 @@
 return [
     'db' => [
         'driver'   => 'pdo',
-        'dsn'      => 'mysql:dbname=ideez;host=localhost',
+        'dsn'      => 'mysql:dbname=amazium;host=localhost',
         'user'     => 'amazium',
         'password' => 'amazium',
     ],
