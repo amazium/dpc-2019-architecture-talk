@@ -1,0 +1,11 @@
+<?php $this->headTitle('Identity Overview') ?>
+
+<h2>Identity Overview</h2>
+
+<?= $this->partial('partial::message'); ?>
+
+<a href="/identity/create" class="btn btn-primary">Create Identity</a>
+
+<?= $this->partial('partial::form', [ 'form' => $this->identityOverviewFilter ]); ?>
+
+<?= $this->partial('partial::table', [ 'table' => $this->identityOverviewTable ]); ?>

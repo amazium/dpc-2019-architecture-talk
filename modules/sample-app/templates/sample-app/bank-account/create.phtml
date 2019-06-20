@@ -1,0 +1,10 @@
+<?php $this->headTitle('Create Bank Account') ?>
+
+<h2>Create Bank Account</h2>
+
+<p>
+    <a href="/bank-account" class="btn btn-secondary">Back to overview</a>
+</p>
+
+<?= $this->partial('partial::form', [ 'form' => $this->createBankAccountForm ]); ?>
+

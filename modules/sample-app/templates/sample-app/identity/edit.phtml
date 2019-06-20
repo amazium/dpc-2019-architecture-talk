@@ -1,0 +1,10 @@
+<?php $this->headTitle('Edit Identity') ?>
+
+<h2>Edit Identity</h2>
+
+<p>
+    <a href="/identity" class="btn btn-secondary">Back to overview</a>
+</p>
+
+<?= $this->partial('partial::form', [ 'form' => $this->editIdentityForm ]); ?>
+

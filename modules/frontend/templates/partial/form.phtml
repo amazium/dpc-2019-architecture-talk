@@ -1,0 +1,17 @@
+<?php
+    $form = $this->form;
+    $form->prepare();
+?>
+<?= $this->form()->openTag($form); ?>
+<?php foreach ($form as $element): ?>
+    <div class="form-group row <?php if($this->formElementErrors($element)) echo "error" ?>">
+        <label class="col-sm-2 col-form-label"><?php echo $element->getLabel() ?></label>
+        <div class="col-sm-10">
+            <?= $this->formElement ( $element ); ?>
+            <?php if ($this->formElementErrors ( $element )): ?>
+            <span class="help-inline"><?php echo $this->formElementErrors($element) ?></span>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endforeach; ?>
+<?= $this->form()->closeTag($form); ?>

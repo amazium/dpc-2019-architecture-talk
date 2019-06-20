@@ -1,0 +1,10 @@
+<?php $this->headTitle('Edit Address') ?>
+
+<h2>Edit Address</h2>
+
+<p>
+    <a href="/address" class="btn btn-secondary">Back to overview</a>
+</p>
+
+<?= $this->partial('partial::form', [ 'form' => $this->editAddressForm ]); ?>
+

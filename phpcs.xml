@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ruleset name="Amazium coding standard">
+    <description>Amazium coding standard</description>
+
+    <!-- display progress -->
+    <arg value="p"/>
+    <arg name="colors"/>
+
+    <!-- inherit rules from: -->
+    <rule ref="PSR2"/>
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+        <properties>
+            <property name="ignoreBlankLines" value="false"/>
+        </properties>
+    </rule>
+
+    <!-- Paths to check -->
+    <file>modules/kernel/src</file>
+    <file>modules/kernel/test</file>
+    <file>modules/identity/src</file>
+    <file>modules/identity/test</file>
+</ruleset>

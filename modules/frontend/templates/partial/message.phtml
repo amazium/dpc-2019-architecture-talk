@@ -1,0 +1,24 @@
+<?php if (!empty($this->info_message)): ?>
+    <div class="alert alert-info" id="msg_success" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span class="fa fa-times-circle"></span></button>
+        <?= $this->info_message ?>
+    </div>
+<?php endif; ?>
+<?php if (!empty($this->error_message)): ?>
+    <div class="alert alert-danger" id="msg_error" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span class="fa fa-times-circle"></span></button>
+        <?= $this->info_message ?>
+    </div>
+<?php endif; ?>
+
+<?php
+$this->inlineScript()->captureStart();
+?>
+    $(document).ready(function () {
+        $("#msg_success").fadeTo(2000, 500).slideUp(500, function(){
+            $("#msg_success").slideUp(500);
+        });
+    });
+<?php
+$this->inlineScript()->captureEnd();
+?>

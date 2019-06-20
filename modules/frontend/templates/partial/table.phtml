@@ -1,0 +1,67 @@
+<?php
+$table = $this->table;
+$id = $table->id();
+$headers = $table->headers();
+$rows = $table->rows();
+?>
+<table id="<?=$id?>" class="dataTable">
+    <?php if (!empty($headers)): ?>
+    <thead>
+    <tr>
+        <?php foreach ($headers as $header): ?>
+        <th><?=$header ?></th>
+        <?php endforeach; ?>
+        <th></th>
+    </tr>
+    </thead>
+    <?php endif; ?>
+    <tbody>
+    <?php if (!empty($rows)): ?>
+    <?php foreach ($rows as $row): ?>
+    <tr>
+        <?php foreach ($row['columns'] ?? [] as $column): ?>
+        <td<?php if (!empty($column['class'])):?> class="<?=$column['class']?>"<?php endif; ?>>
+            <?php if (!empty($column['raw']) && !empty($column['action'])): ?>
+                <a href="<?=$this->url($column['action'], $column['action_params'] ?? [])?>">
+            <?php endif; ?>
+            <?php if (!empty($column['icon'])):?>
+                <span class="fa fa-<?=$column['icon']?>" title="<?=$column['value'] ?? ''?>"></span>
+            <?php elseif (!empty($column['value'])): ?>
+                <?=$column['value']?>
+            <?php elseif (!empty($column['raw'])): ?>
+                <?=$column['raw']?>
+            <?php endif; ?>
+            <?php if (!empty($column['raw']) && !empty($column['action'])): ?></a><?php endif; ?>
+        </td>
+        <?php endforeach; ?>
+        <td class="text-right">
+            <div class="btn-group mr-0" role="group">
+            <?php foreach ($row['buttons'] ?? [] as $button): ?>
+                <?php if (!empty($button['action'])): ?>
+                    <a href="<?=$this->url($button['action'], $button['action_params'] ?? [])?><?php
+                    if (!empty($button['action_get_params'])):?>?<?php
+                        $x = 0;
+                        foreach ($button['action_get_params'] as $key => $value) {
+                            if ($x++) echo '&';
+                            echo $key . '=' . urlencode($value);
+                        }
+                        ?><?php endif; ?>"
+                       class="btn <?=$button['class'] ?? 'btn-secondary'?>"
+                       id="<?=$button['id']??''?>"
+                       title="<?=$button['label']??''?>"
+                    >
+                <?php endif; ?>
+                <?php if (!empty($button['icon'])):?>
+                    <span class="fa fa-<?=$button['icon']?>" title="<?=$button['label'] ?? ''?>"></span>
+                <?php elseif (!empty($button['label'])): ?>
+                    <?=$button['label']?>
+                <?php endif; ?>
+                <?php if (!empty($button['action'])): ?></a><?php endif; ?>
+            <?php endforeach; ?>
+            </div>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+    <?php endif; ?>
+    </tbody>
+</table>

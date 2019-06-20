@@ -1,0 +1,11 @@
+<?php $this->headTitle('Show Bank Account') ?>
+
+<h2>Show Bank Account</h2>
+
+<?= $this->partial('partial::message'); ?>
+
+<p>
+    <a href="/bank-account" class="btn btn-secondary">Back to overview</a>
+</p>
+
+<?= $this->partial('partial::detail', [ 'detail' => $this->bankAccountDetailData ] ); ?>

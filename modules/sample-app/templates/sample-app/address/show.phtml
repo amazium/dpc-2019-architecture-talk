@@ -1,0 +1,11 @@
+<?php $this->headTitle('Show Address') ?>
+
+<h2>Show Address</h2>
+
+<?= $this->partial('partial::message'); ?>
+
+<p>
+    <a href="/address" class="btn btn-secondary">Back to overview</a>
+</p>
+
+<?= $this->partial('partial::detail', [ 'detail' => $this->addressDetailData ] ); ?>

@@ -1,0 +1,24 @@
+{% extends '@layout/default.html.twig' %}
+
+{% block title %}Amazium : Login{% endblock %}
+
+{% block content %}
+    <h1>Log In</h1>
+    {% if error is defined %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="{{ path('account.login') }}">
+        <input type="hidden" name="redirect" value="{{ redirect }}" />
+        <div>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" value="{{ username|default('') }}" />
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+        </div>
+        <input type="submit" value="Log in" />
+        <input type="button" value="Log in using Gitlab"
+               onclick="document.location='{{ path('account.login.gitlab') }}';" />
+    </form>
+{% endblock %}

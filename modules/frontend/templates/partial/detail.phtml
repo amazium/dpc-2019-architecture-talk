@@ -1,0 +1,36 @@
+<?php
+    $detail = $this->detail;
+    $items = $detail->items();
+    $actions = $detail->actions();
+?>
+<table class="table table-striped table-bordered detail-table">
+    <?php foreach ($items as $set): ?>
+    <tr>
+        <th><?=$set['label'] ?></th>
+        <td><?php if (!empty($set['value']) && $set['action'] ?? false): ?><a
+                href="<?=$this->url($set['action'], $set['action_params'])?>"><?php endif; ?>
+            <?php if ($set['icon'] ?? false): ?>
+            <span class="fa fa-<?$set['icon']?>"></span> <?=$set['value'] ?? '' ?>
+            <?php else: ?>
+            <?=$set['value'] ?? '&nbsp;' ?>
+            <?php endif; ?>
+            <?php if (!empty($set['value']) && $set['action'] ?? false): ?></a><?php endif; ?>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
+
+<?php if (!empty($actions)):?>
+<p class="btn_group text-center">
+    <?php foreach ($actions as $action): ?>
+    <a href="<?=$this->url($action['action'], $action['action_params'] ?? [])?>"
+       class="btn <?=$action['class'] ?? 'btn-secondary'?>"
+       title="<?=$action['title']?>">
+        <?php if ($action['icon']): ?>
+            <span class="fa fa-<?=$action['icon']?>"></span> <?=$action['title']?>
+        <?php else: ?>
+            <?=$action['title']?>
+        <?php endif; ?></a>
+    <?php endforeach; ?>
+</p>
+<?php endif; ?>

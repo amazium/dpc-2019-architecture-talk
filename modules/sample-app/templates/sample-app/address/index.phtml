@@ -1,0 +1,11 @@
+<?php $this->headTitle('Address Overview') ?>
+
+<h2>Address Overview</h2>
+
+<?= $this->partial('partial::message'); ?>
+
+<a href="/address/create" class="btn btn-primary">Create Address</a>
+
+<?= $this->partial('partial::form', [ 'form' => $this->addressOverviewFilter ]); ?>
+
+<?= $this->partial('partial::table', [ 'table' => $this->addressOverviewTable ]); ?>

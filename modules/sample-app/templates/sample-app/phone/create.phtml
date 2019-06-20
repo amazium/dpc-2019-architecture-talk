@@ -1,0 +1,10 @@
+<?php $this->headTitle('Create Phone') ?>
+
+<h2>Create Phone</h2>
+
+<p>
+    <a href="/phone" class="btn btn-secondary">Back to overview</a>
+</p>
+
+<?= $this->partial('partial::form', [ 'form' => $this->createPhoneForm ]); ?>
+

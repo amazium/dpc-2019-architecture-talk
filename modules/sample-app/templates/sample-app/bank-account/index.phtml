@@ -1,0 +1,11 @@
+<?php $this->headTitle('Bank Account Overview') ?>
+
+<h2>Bank Account Overview</h2>
+
+<?= $this->partial('partial::message'); ?>
+
+<a href="/bank-account/create" class="btn btn-primary">Create Address</a>
+
+<?= $this->partial('partial::form', [ 'form' => $this->bankAccountOverviewFilter ]); ?>
+
+<?= $this->partial('partial::table', [ 'table' => $this->bankAccountOverviewTable ]); ?>

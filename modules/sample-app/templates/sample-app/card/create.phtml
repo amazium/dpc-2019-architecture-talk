@@ -1,0 +1,10 @@
+<?php $this->headTitle('Create Card') ?>
+
+<h2>Create Card</h2>
+
+<p>
+    <a href="/card" class="btn btn-secondary">Back to overview</a>
+</p>
+
+<?= $this->partial('partial::form', [ 'form' => $this->createCardForm ]); ?>
+

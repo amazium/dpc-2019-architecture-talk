@@ -1,0 +1,11 @@
+<?php $this->headTitle('Phone Overview') ?>
+
+<h2>Phone Overview</h2>
+
+<?= $this->partial('partial::message'); ?>
+
+<a href="/phone/create" class="btn btn-primary">Create Phone</a>
+
+<?= $this->partial('partial::form', [ 'form' => $this->phoneOverviewFilter ]); ?>
+
+<?= $this->partial('partial::table', [ 'table' => $this->phoneOverviewTable ]); ?>

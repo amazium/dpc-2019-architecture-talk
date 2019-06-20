@@ -1,0 +1,10 @@
+<?php $this->headTitle('Create Address') ?>
+
+<h2>Create Address</h2>
+
+<p>
+    <a href="/address" class="btn btn-secondary">Back to overview</a>
+</p>
+
+<?= $this->partial('partial::form', [ 'form' => $this->createAddressForm ]); ?>
+

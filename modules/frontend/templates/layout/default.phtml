@@ -1,0 +1,99 @@
+<?php
+$this->headLink()
+    ->prependStylesheet('//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
+    ->prependStylesheet('https://use.fontawesome.com/releases/v5.0.6/css/all.css')
+    ->prependStylesheet('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+$this->inlineScript()
+    ->prependFile('//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+    ->prependFile('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
+    ->prependFile('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
+    ->prependFile('https://code.jquery.com/jquery-3.3.1.min.js');
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="https://framework.zend.com/ico/favicon.ico" />
+    <?=$this->headTitle('Amazium')->setSeparator(' - ')->setAutoEscape(false)?>
+    <?=$this->headMeta()?>
+    <?=$this->headLink()?>
+    <style>
+        body { padding-top: 70px; }
+        .app { min-height: 100vh; }
+        .app-footer { padding-bottom: 1em; }
+        h2 a { color: #68b604; }
+        .detail-table th {
+            text-align: right;
+            text-align: right;
+            font-weight: bold;
+        }
+        .detail-table th::after {
+            content: ":";
+        }
+    </style>
+    <?=$this->headStyle()?>
+</head>
+<body class="app">
+<header class="app-header">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" role="navigation">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="<?=$this->url('identity.index')?>" class="nav-link">
+                                <i class="fa fa-user"></i> Identities
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?=$this->url('address.index')?>" class="nav-link">
+                                <i class="fa fa-home"></i> Addresses
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?=$this->url('bank-account.index')?>" class="nav-link">
+                                <i class="fa fa-book"></i> Bank Accounts
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?=$this->url('card.index')?>" class="nav-link">
+                                <i class="fa fa-credit-card"></i> Cards
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?=$this->url('phone.index')?>" class="nav-link">
+                                <i class="fa fa-phone"></i> Phones
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="app-content">
+        <main class="container">
+            <?=$this->content?>
+        </main>
+    </div>
+
+    <footer class="app-footer">
+        <div class="container">
+            <hr />
+            <p>
+                &copy; 2019 - <?=date('Y')?> by Amazium bvba. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</div>
+<?=$this->inlineScript()?>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.dataTable').each(function (i, item) {
+            $('#' + item.id).DataTable();
+        });
+    });
+</script>
+</body>
+</html>

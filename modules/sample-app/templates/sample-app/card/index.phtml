@@ -1,0 +1,11 @@
+<?php $this->headTitle('Card Overview') ?>
+
+<h2>Card Overview</h2>
+
+<?= $this->partial('partial::message'); ?>
+
+<a href="/card/create" class="btn btn-primary">Create Card</a>
+
+<?= $this->partial('partial::form', [ 'form' => $this->cardOverviewFilter ]); ?>
+
+<?= $this->partial('partial::table', [ 'table' => $this->cardOverviewTable ]); ?>
