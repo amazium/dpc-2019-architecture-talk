@@ -8,7 +8,7 @@
 
 ## DB config
 
-Open your mysql database client and run database.sql (contains lines for creating the ce user, database and access rights + tables).
+Open your mysql database client, create a datab ase `amazium` with username/password combo `amazium` / `amazium`. Import `amazium.sql` into the newly created schema.
 
 ## Install dependencies
 
